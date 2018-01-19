@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{934584FD-19DC-4C00-B71C-81A558433187}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Filemater</RootNamespace>
+    <AssemblyName>Filemater</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Filemater.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fireball.Docking">
+      <HintPath>3rdparty\Fireball.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="libpixy.net">
+      <HintPath>3rdparty\libpixy.net.dll</HintPath>
+    </Reference>
+    <Reference Include="libpixy.net.fsutils.wrapper">
+      <HintPath>3rdparty\libpixy.net.fsutils.wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="libpixy.net.tagutils.wrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>3rdparty\libpixy.net.tagutils.wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="File.cs" />
+    <Compile Include="Filemater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filemater.designer.cs">
+      <DependentUpon>Filemater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileSort\CreateTimeComarer.cs" />
+    <Compile Include="FileSort\Exif\ApertureComparer.cs" />
+    <Compile Include="FileSort\Exif\DateTimeComparer.cs" />
+    <Compile Include="FileSort\Exif\ExposureProgramComparer.cs" />
+    <Compile Include="FileSort\Exif\FocalLengthComparer.cs" />
+    <Compile Include="FileSort\Exif\ImageSizeComparer.cs" />
+    <Compile Include="FileSort\Exif\ISOSpeedComparer.cs" />
+    <Compile Include="FileSort\Exif\MakeComparer.cs" />
+    <Compile Include="FileSort\Exif\ModelComparer.cs" />
+    <Compile Include="FileSort\Exif\ShutterSpeedComparer.cs" />
+    <Compile Include="FileSort\FilenameComparer.cs" />
+    <Compile Include="FileSort\GoalNodeComparer.cs" />
+    <Compile Include="FileSort\ID3\AlbumNameComparer.cs" />
+    <Compile Include="FileSort\ID3\ArtistNameComparer.cs" />
+    <Compile Include="FileSort\ID3\BitRateComparer.cs" />
+    <Compile Include="FileSort\ID3\GenreComparer.cs" />
+    <Compile Include="FileSort\ID3\LengthComparer.cs" />
+    <Compile Include="FileSort\ID3\TrackNameComparer.cs" />
+    <Compile Include="FileSort\ID3\TrackNoComparer.cs" />
+    <Compile Include="FileSort\ID3\YearComparer.cs" />
+    <Compile Include="FileSort\ImageSizeComparer.cs" />
+    <Compile Include="FileSort\PathComparer.cs" />
+    <Compile Include="FileSort\SizeComparer.cs" />
+    <Compile Include="FileSort\StatusComparer.cs" />
+    <Compile Include="FileSort\UpdateTimeComparer.cs" />
+    <Compile Include="Forms\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox.designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AboutFilemater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutFilemater.designer.cs">
+      <DependentUpon>AboutFilemater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Option.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Option.designer.cs">
+      <DependentUpon>Option.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcessOutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcessOutputForm.designer.cs">
+      <DependentUpon>ProcessOutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProgressExecNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgressExecNodeForm.designer.cs">
+      <DependentUpon>ProgressExecNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="Nodes\Filter\AttrNode.cs" />
+    <Compile Include="Nodes\Filter\AttrNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\AttrNodeForm.designer.cs">
+      <DependentUpon>AttrNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\ExifNode.cs" />
+    <Compile Include="Nodes\Filter\ExifNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\ExifNodeForm.designer.cs">
+      <DependentUpon>ExifNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\HashNode.cs" />
+    <Compile Include="Nodes\Filter\HashNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\HashNodeForm.designer.cs">
+      <DependentUpon>HashNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\ID3TagNode.cs" />
+    <Compile Include="Nodes\Filter\ID3TagNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\ID3TagNodeForm.designer.cs">
+      <DependentUpon>ID3TagNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\ImageSizeNode.cs" />
+    <Compile Include="Nodes\Filter\ImageSizeNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\ImageSizeNodeForm.designer.cs">
+      <DependentUpon>ImageSizeNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\NameNode.cs" />
+    <Compile Include="Nodes\Filter\NameNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\NameNodeForm.Designer.cs">
+      <DependentUpon>NameNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\SizeNode.cs" />
+    <Compile Include="Nodes\Filter\SizeNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\SizeNodeForm.Designer.cs">
+      <DependentUpon>SizeNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\TimeNode.cs" />
+    <Compile Include="Nodes\IFilterNode.cs" />
+    <Compile Include="Nodes\IInputNode.cs" />
+    <Compile Include="Nodes\INode.cs" />
+    <Compile Include="Nodes\Input\ArgumentsNode.cs" />
+    <Compile Include="Nodes\Input\FilesNode.cs" />
+    <Compile Include="Nodes\Input\FilesNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Input\FilesNodeForm.designer.cs">
+      <DependentUpon>FilesNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Input\ArgumentsNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Input\ArgumentsNodeForm.designer.cs">
+      <DependentUpon>ArgumentsNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\IOpNode.cs" />
+    <Compile Include="Nodes\IOutputNode.cs" />
+    <Compile Include="Nodes\Operator\AndNode.cs" />
+    <Compile Include="Nodes\Output\CopyNode.cs" />
+    <Compile Include="Nodes\Output\CopyNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Output\CopyNodeForm.designer.cs">
+      <DependentUpon>CopyNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Output\DeleteNode.cs" />
+    <Compile Include="Nodes\Output\DeleteNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Output\DeleteNodeForm.designer.cs">
+      <DependentUpon>DeleteNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Output\MoveNode.cs" />
+    <Compile Include="Nodes\Output\MoveNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Output\MoveNodeForm.designer.cs">
+      <DependentUpon>MoveNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Output\ProgramNode.cs" />
+    <Compile Include="Nodes\Output\ProgramNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Output\ProgramNodeForm.designer.cs">
+      <DependentUpon>ProgramNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\SimpleNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\SimpleNodeForm.designer.cs">
+      <DependentUpon>SimpleNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Filter\TimeNodeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nodes\Filter\TimeNodeForm.Designer.cs">
+      <DependentUpon>TimeNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Toolbox\Filter\AttrFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\ExifFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\HashFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\ID3TagFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\ImageSizeFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\NameFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\SizeFilterButton.cs" />
+    <Compile Include="Toolbox\Filter\TimeFilterButton.cs" />
+    <Compile Include="Toolbox\Input\ArgumentsInputButton.cs" />
+    <Compile Include="Toolbox\Input\FilesInputButton.cs" />
+    <Compile Include="Toolbox\IToolboxButton.cs" />
+    <Compile Include="Toolbox\Operator\AndOpButton.cs" />
+    <Compile Include="Toolbox\Output\CopyOutputButton.cs" />
+    <Compile Include="Toolbox\Output\DeleteOutputButton.cs" />
+    <Compile Include="Toolbox\Output\MoveOutputButton.cs" />
+    <Compile Include="Toolbox\Output\ProgramOutputButton.cs" />
+    <Compile Include="Toolbox\ToolboxButtons.cs" />
+    <Compile Include="Util\NumberChecker.cs" />
+    <Compile Include="Window\FileInfoWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\NavigationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\NodeToolboxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\PropertyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\ResultWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Window\SchematicWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Filemater.resx">
+      <DependentUpon>Filemater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutFilemater.resx">
+      <DependentUpon>AboutFilemater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Option.resx">
+      <DependentUpon>Option.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProcessOutputForm.resx">
+      <DependentUpon>ProcessOutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressExecNodeForm.resx">
+      <DependentUpon>ProgressExecNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\AttrNodeForm.resx">
+      <DependentUpon>AttrNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\ExifNodeForm.resx">
+      <DependentUpon>ExifNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\HashNodeForm.resx">
+      <DependentUpon>HashNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\ID3TagNodeForm.resx">
+      <DependentUpon>ID3TagNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\ImageSizeNodeForm.resx">
+      <DependentUpon>ImageSizeNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\NameNodeForm.resx">
+      <DependentUpon>NameNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Input\FilesNodeForm.resx">
+      <DependentUpon>FilesNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Input\ArgumentsNodeForm.resx">
+      <DependentUpon>ArgumentsNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Output\CopyNodeForm.resx">
+      <DependentUpon>CopyNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Output\DeleteNodeForm.resx">
+      <DependentUpon>DeleteNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Output\MoveNodeForm.resx">
+      <DependentUpon>MoveNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Output\ProgramNodeForm.resx">
+      <DependentUpon>ProgramNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\SimpleNodeForm.resx">
+      <DependentUpon>SimpleNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\SizeNodeForm.resx">
+      <DependentUpon>SizeNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nodes\Filter\TimeNodeForm.resx">
+      <DependentUpon>TimeNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Window\FileInfoWindow.resx">
+      <DependentUpon>FileInfoWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\NavigationWindow.resx">
+      <DependentUpon>NavigationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\NodeToolboxWindow.resx">
+      <DependentUpon>NodeToolboxWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\PropertyWindow.resx">
+      <DependentUpon>PropertyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\ResultWindow.resx">
+      <DependentUpon>ResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Window\SchematicWindow.resx">
+      <DependentUpon>SchematicWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ui-check-box.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-blue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk-black.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-copy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder--arrow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-horizontal-open.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funnel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid-snap.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier--arrow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier-left.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier-medium.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier-zoom.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier-zoom-out.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\target.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filemater16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filemater32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Filemater.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
